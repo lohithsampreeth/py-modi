@@ -8,6 +8,8 @@ ENV FLASK_PORT=8081
 WORKDIR /projects
 RUN apk update && \
     apk add --no-cache git subversion
+RUN apk update && \
+    apk add --no-cache git-perl subversion
 # Copy the content of the local src directory to the working directory
 COPY . .
 
