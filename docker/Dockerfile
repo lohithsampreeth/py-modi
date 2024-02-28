@@ -18,6 +18,9 @@ RUN \
   elif [ `ls -1q *.txt | wc -l` == 1 ]; \
     then pip install -r *.txt; \
   fi
+# Give ownership and permissions to the user
+RUN chown -R user:user /projects
+RUN chmod -R 755 /projects
 
 # Specify the command to run on container start
 CMD [ "python", "./app.py" ]
