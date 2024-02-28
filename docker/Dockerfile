@@ -6,7 +6,8 @@ ENV FLASK_PORT=8081
 
 # Set the working directory in the container
 WORKDIR /projects
-
+RUN apt-get update && apt-get install -y git
+RUN apt-get install -y git-svn
 # Copy the content of the local src directory to the working directory
 COPY . .
 
