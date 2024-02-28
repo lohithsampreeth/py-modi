@@ -1,4 +1,4 @@
-FROM python:3.10-alpine
+FROM python:3.10-slim
 
 # By default, listen on port 8081
 EXPOSE 8081/tcp
@@ -6,10 +6,8 @@ ENV FLASK_PORT=8081
 
 # Set the working directory in the container
 WORKDIR /projects
-RUN apk update && \
-    apk add --no-cache git subversion
-RUN apk update && \
-    apk add --no-cache git-perl subversion
+RUN apt-get update && apt-get install -y git 
+RUN apt-get install -y git-svn
 # Copy the content of the local src directory to the working directory
 COPY . .
 
