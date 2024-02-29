@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM ubuntu
 
 # By default, listen on port 8081
 EXPOSE 8081/tcp
